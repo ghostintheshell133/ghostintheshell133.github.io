@@ -1,0 +1,65 @@
+/* Mobile First: базовые правила ниже — для смартфонов, media query ниже добавляет правила для планшетов/десктопов */
+:root { --bg: #eef1f6; --card-bg: #ffffff; --text: #1f2937; --link: #1a56db; --border: #d7dce3; --header-bg: #44608f; --header-bg-dark: #37507a; --row-alt: #f3f5f8; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; background: var(--bg); color: var(--text); }
+a { color: var(--link); }
+.container { max-width: 960px; margin: 0 auto; padding: 0 10px; }
+header { width: 100%; background: var(--header-bg); color: #ffffff; padding: 16px 0; }
+#site-header .header-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+#site-header .logo img { display: block; width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.5); }
+#site-header .header-text { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+nav.site-nav ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 2px 0; padding: 0; width: 100%; }
+nav.site-nav a { color: #ffffff; text-decoration: none; font-weight: 600; }
+nav.site-nav a:hover { text-decoration: underline; }
+#site-header .site-name { margin: 0; font-size: 1.4rem; font-weight: bold; }
+main { width: 100%; max-width: 960px; margin: 20px auto; padding: 0 10px; display: flex; flex-direction: column; gap: 20px; }
+#table-section { order: 1; }
+#links-section { order: 2; }
+#form-section { order: 3; }
+section.card { background: var(--card-bg); border-radius: 10px; padding: 18px 20px; margin-bottom: 0; box-shadow: 0 1px 3px rgba(16, 24, 40, 0.08); }
+section.card h2 { background: none; padding: 0 0 10px; border-bottom: 1px solid var(--border); margin: 0 0 14px; font-size: 1.25rem; color: var(--text); }
+ul.link-list { padding-left: 22px; margin: 0; }
+ul.link-list > li { padding: 4px 0; }
+ol.nested-list { margin-top: 5px; padding-left: 20px; }
+fieldset { border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin: 0 0 14px; }
+legend { padding: 0 6px; font-weight: bold; }
+form p, .form-row { margin: 0 0 14px; }
+.form-row label { display: block; font-weight: bold; margin-bottom: 4px; }
+.form-row input[type="text"], .form-row input[type="tel"], .form-row input[type="email"], .form-row input[type="date"], .form-row select, .form-row textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; font-family: inherit; box-sizing: border-box; }
+.radio-group label, .checkbox-row label, .lang-group label { font-weight: normal; margin-right: 14px; }
+textarea { max-width: 100%; min-height: 90px; }
+button[type="submit"] { width: 100%; font-size: 1rem; font-weight: 600; padding: 12px 14px; border: none; border-radius: 8px; background: var(--header-bg); color: #ffffff; cursor: pointer; box-sizing: border-box; }
+button[type="submit"]:hover { background: var(--header-bg-dark); }
+.hint { margin: 4px 0 0; font-size: 0.9rem; color: #555555; }
+.save-message { margin: 10px 0 0; font-weight: bold; }
+.save-message.success { color: green; }
+.save-message.error { color: red; }
+.shapes-block { padding: 6px 0 0; }
+.shape-link { display: inline-block; text-align: center; background: var(--card-bg); border: 2px solid var(--header-bg); color: var(--header-bg); font-weight: 600; text-decoration: none; margin-right: 15px; margin-top: 8px; }
+.shape-link:hover { background: var(--header-bg); color: #ffffff; }
+.shape-square { width: 90px; height: 90px; line-height: 90px; border-radius: 6px; }
+.shape-circle { width: 90px; height: 90px; line-height: 90px; border-radius: 50%; }
+img.building-img { display: block; margin-top: 5px; max-width: 260px; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
+footer { width: 100%; background: var(--header-bg); color: #ffffff; padding: 14px 0; margin-top: 4px; }
+#site-footer .footer-inner { text-align: center; }
+#site-footer p { margin: 0; }
+.context-p { margin: 5px 0 0; }
+table.course-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+table.course-table caption { text-align: left; font-weight: bold; margin-bottom: 6px; }
+table.course-table th, table.course-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
+table.course-table thead th { background: #e4e9f2; }
+table.course-table tbody tr.row-odd { background: var(--row-alt); }
+table.course-table tbody tr.row-even { background: #ffffff; }
+table.course-table tbody tr.group-row td { background: #c6d0e0; font-weight: bold; text-align: center; }
+code { background: #eeeeee; padding: 1px 4px; border-radius: 3px; }
+
+/* Mobile First: правила для планшетов и десктопов (от 800px) — как в предыдущем задании */
+@media screen and (min-width: 800px) {
+  #site-header .header-inner { flex-direction: row; align-items: center; gap: 15px; }
+  #site-header .header-text { width: auto; flex: 1 1 220px; }
+  nav.site-nav ul { flex-direction: row; flex-wrap: wrap; gap: 18px; width: auto; }
+  #links-section { order: 1; }
+  #table-section { order: 2; }
+  #form-section { order: 3; }
+  table.course-table { font-size: 1rem; }
+  table.course-table th, table.course-table td { padding: 8px; }
+}
