@@ -14,12 +14,12 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #222;
-    background-color: #f5f7fa;
+    color: #1f2937;
+    background-color: #eef1f6;
 }
 
 a {
-    color: #1a4f9c;
+    color: #1a56db;
     text-decoration: underline;
 }
 
@@ -37,7 +37,7 @@ a:hover {
 /* ================= HEADER ================= */
 .header {
     width: 100%;
-    background-color: #4a7ab5;
+    background-color: #44608f;
     color: #fff;
     padding: 15px 0;
 }
@@ -109,7 +109,7 @@ a:hover {
 .section {
     width: 100%;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #d7dce3;
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 20px;
@@ -118,7 +118,7 @@ a:hover {
 .section__title {
     font-size: 20px;
     margin-bottom: 12px;
-    color: #2c3e50;
+    color: #1f2937;
 }
 
 /* ---------- Обёртка списка ссылок и таблицы: Flexbox + order ---------- */
@@ -184,20 +184,20 @@ a:hover {
 
 .table th,
 .table td {
-    border: 1px solid #000;
+    border: 1px solid #d7dce3;
     padding: 8px;
     text-align: left;
     vertical-align: top;
 }
 
 .table th {
-    background-color: #4a7ab5;
+    background-color: #44608f;
     color: #fff;
     font-weight: bold;
 }
 
 .table tbody tr:nth-child(odd) {
-    background-color: #eef3f9;
+    background-color: #f3f5f8;
 }
 
 .table tbody tr:nth-child(even) {
@@ -218,7 +218,7 @@ a:hover {
     width: 100%;
     max-width: 100%;
     padding: 8px 10px;
-    border: 1px solid #aaa;
+    border: 1px solid #d7dce3;
     border-radius: 4px;
     font-size: 15px;
 }
@@ -228,7 +228,7 @@ a:hover {
 }
 
 .form__fieldset {
-    border: 1px solid #ccc;
+    border: 1px solid #d7dce3;
     border-radius: 4px;
     padding: 10px 15px;
     margin-bottom: 15px;
@@ -262,7 +262,7 @@ a:hover {
 
 .form__button {
     width: 100%;
-    background-color: #4a7ab5;
+    background-color: #44608f;
     color: #fff;
     border: none;
     padding: 12px 25px;
@@ -272,13 +272,13 @@ a:hover {
 }
 
 .form__button:hover {
-    background-color: #3a6290;
+    background-color: #37507a;
 }
 
 /* ================= FOOTER ================= */
 .footer {
     width: 100%;
-    background-color: #4a7ab5;
+    background-color: #44608f;
     color: #fff;
     padding: 20px 0;
     margin-top: 10px;
