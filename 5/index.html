@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор стоимости заказа</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #44608f, #37507a);
+        padding: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 440px;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px 28px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    h1 {
+        margin: 0 0 6px;
+        font-size: 24px;
+        color: #1f2937;
+    }
+
+    .subtitle {
+        margin: 0 0 22px;
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+    form {
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #1f2937;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #d7dce3;
+        border-radius: 6px;
+        font-size: 15px;
+        margin-bottom: 18px;
+        font-family: inherit;
+    }
+
+    button {
+        width: 100%;
+        background-color: #44608f;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #37507a;
+    }
+
+    #result {
+        margin-top: 18px;
+        padding: 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #result:empty {
+        display: none;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    #result:not(.error):not(:empty) {
+        background-color: #e7f6ec;
+        color: #1a7a3c;
+    }
+
+    #result.error {
+        background-color: #fde8e8;
+        color: #c0392b;
+    }
+
+    footer {
+        margin-top: 20px;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+<script src="calc.js" defer></script>
+</head>
+<body>
+
+<main class="card">
+    <h1>Калькулятор заказа</h1>
+    <p class="subtitle">Выберите товар и укажите количество</p>
+
+    <form id="calc-form">
+        <label for="product">Товар</label>
+        <select id="product">
+            <option value="2300">Клавиатура — 2300 ₽</option>
+            <option value="800">Мышка — 800 ₽</option>
+            <option value="700">Микрофон — 700 ₽</option>
+        </select>
+
+        <label for="quantity">Количество</label>
+        <input type="text" id="quantity" value="1" autocomplete="off">
+
+        <button type="button" id="calc-button">Рассчитать стоимость</button>
+
+        <div id="result" aria-live="polite"></div>
+    </form>
+</main>
+
+<footer>Семён</footer>
+
+</body>
+</html>
