@@ -1,41 +1,25 @@
 /* =========================================================
-   ЗАДАНИЕ 4. Тот же дизайн, что в задании 3.
-   Bootstrap подключён в index.html (CSS и JS), но внешний вид
-   страницы полностью определяется этими собственными стилями —
-   они идут в html после Bootstrap, поэтому перекрывают его.
+   ЗАДАНИЕ 4. Внешний вид страницы на Bootstrap 5
+   (сетка row/col, карточки card, таблица table,
+   элементы формы form-control/form-check, кнопка btn).
+   Bootstrap подключён в index.html раньше этого файла,
+   поэтому эти правила идут после него и переопределяют
+   цвета Bootstrap под единую цветовую схему проекта
+   (#44608f / #37507a), а шапка и подвал остаются такими
+   же, как в предыдущих заданиях.
    ========================================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 body {
     font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
     color: #1f2937;
     background-color: #eef1f6;
 }
 
 a {
     color: #1a56db;
-    text-decoration: underline;
 }
 
-a:hover {
-    text-decoration: none;
-}
-
-/* ---------- Контейнер: на мобильных — 100% ширины ---------- */
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* ================= HEADER ================= */
+/* ================= HEADER (без изменений по сравнению с заданием 3) ================= */
 .header {
     width: 100%;
     background-color: #44608f;
@@ -44,8 +28,6 @@ a:hover {
 }
 
 .header__inner {
-    width: 100%;
-    padding: 0 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,24 +41,14 @@ a:hover {
     margin-bottom: 8px;
 }
 
-.header__title {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 0 12px 0;
-    color: #fff;
-}
-
-/* ---------- Навигация: вертикальный список на смартфоне ---------- */
-.nav {
-    width: 100%;
-}
-
 .nav__list {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .nav__item {
@@ -101,43 +73,66 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ================= MAIN ================= */
-.main {
-    width: 100%;
-    padding: 20px 0;
+@media (min-width: 768px) {
+    .header__inner {
+        max-width: 960px;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: left;
+    }
+
+    #logo {
+        width: 80px;
+        height: 80px;
+        margin: 0 15px 0 0;
+    }
+
+    .nav {
+        width: 100%;
+        flex-basis: 100%;
+        margin-top: 15px;
+    }
+
+    .nav__list {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .nav__item {
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
 }
 
-.section {
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #d7dce3;
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 20px;
+/* ================= MAIN / КАРТОЧКИ BOOTSTRAP ================= */
+.main {
+    padding: 20px 0 30px;
+}
+
+.card {
+    border-color: #d7dce3;
 }
 
 .section__title {
+    color: #1f2937;
     font-size: 20px;
     margin-bottom: 12px;
-    color: #1f2937;
 }
 
-/* ---------- Обёртка списка ссылок и таблицы: Flexbox + order ---------- */
-.content-flex {
-    display: flex;
-    flex-direction: column;
+@media (min-width: 768px) {
+    .main {
+        padding: 30px 0 40px;
+    }
+
+    .section__title {
+        font-size: 22px;
+    }
 }
 
-/* На смартфоне таблица визуально выше списка ссылок (order) */
-#table {
-    order: -1;
-}
-
-#links {
-    order: 0;
-}
-
-/* ---------- Список гиперссылок ---------- */
 .links-list {
     padding-left: 20px;
 }
@@ -146,7 +141,7 @@ a:hover {
     margin-bottom: 8px;
 }
 
-.links-list ul {
+.links-list .nested-list {
     margin-top: 5px;
     padding-left: 20px;
 }
@@ -158,125 +153,46 @@ a:hover {
     height: auto;
 }
 
-.links-list img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ---------- Таблица ---------- */
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.table {
-    width: 100%;
-    min-width: 480px;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.table caption {
-    caption-side: top;
-    text-align: left;
+.hint {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
-.table th,
-.table td {
-    border: 1px solid #d7dce3;
-    padding: 8px;
-    text-align: left;
-    vertical-align: top;
-}
-
-.table th {
+/* ---------- Таблица: свой цвет шапки поверх Bootstrap ---------- */
+.table thead th {
     background-color: #44608f;
     color: #fff;
-    font-weight: bold;
-}
-
-.table tbody tr:nth-child(odd) {
-    background-color: #f3f5f8;
-}
-
-.table tbody tr:nth-child(even) {
-    background-color: #ffffff;
 }
 
 /* ---------- Форма ---------- */
-.form__row {
-    margin-bottom: 15px;
-}
-
-.form__label {
-    font-weight: bold;
-}
-
-.form__input,
-.form__textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #d7dce3;
-    border-radius: 4px;
-    font-size: 15px;
-}
-
-.form__textarea {
-    resize: vertical;
-}
-
-.form__fieldset {
-    border: 1px solid #d7dce3;
-    border-radius: 4px;
-    padding: 10px 15px;
-    margin-bottom: 15px;
-}
-
-.form__legend {
+.form-legend {
     font-weight: bold;
     padding: 0 5px;
+    width: auto;
+    float: none;
 }
 
-.form__radio,
-.form__checkbox {
-    display: block;
-    margin-right: 0;
-    margin-bottom: 8px;
-    font-weight: normal;
+fieldset.border {
+    border-color: #d7dce3 !important;
 }
 
-.form__checkbox--contract {
-    display: block;
-    margin-top: 10px;
+#lang-error {
+    display: inline-block;
+    margin-top: 6px;
 }
 
-.form__error {
-    color: red;
-    display: none;
-    margin-left: 0;
-    margin-top: 5px;
-    font-weight: bold;
+/* ---------- Кнопка в цветах проекта ---------- */
+.btn-primary {
+    --bs-btn-bg: #44608f;
+    --bs-btn-border-color: #44608f;
+    --bs-btn-hover-bg: #37507a;
+    --bs-btn-hover-border-color: #37507a;
+    --bs-btn-active-bg: #37507a;
+    --bs-btn-active-border-color: #37507a;
+    --bs-btn-focus-shadow-rgb: 68, 96, 143;
 }
 
-.form__button {
-    width: 100%;
-    background-color: #44608f;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.form__button:hover {
-    background-color: #37507a;
-}
-
-/* ================= FOOTER ================= */
+/* ================= FOOTER (без изменений по сравнению с заданием 3) ================= */
 .footer {
     width: 100%;
     background-color: #44608f;
@@ -291,109 +207,7 @@ a:hover {
     margin: 0;
 }
 
-
-/* =========================================================
-   ПЛАНШЕТЫ И ДЕСКТОП (min-width: 768px)
-   Здесь страница выглядит как в предыдущем задании:
-   шапка в одну строку, меню горизонтальное,
-   список ссылок снова идёт перед таблицей.
-   ========================================================= */
 @media (min-width: 768px) {
-
-    .container {
-        max-width: 960px;
-    }
-
-    .header__inner {
-        max-width: 960px;
-        margin: 0 auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        text-align: left;
-    }
-
-    #logo {
-        width: 80px;
-        height: 80px;
-        margin: 4px 15px 0 0;
-    }
-
-    .header__title {
-        font-size: 22px;
-        margin: 0;
-        flex: 1 1 auto;
-    }
-
-    .nav {
-        width: 100%;
-        flex-basis: 100%;
-        margin-top: 15px;
-    }
-
-    .nav__list {
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .nav__item {
-        width: auto;
-        text-align: left;
-        margin-bottom: 0;
-        margin-right: 20px;
-    }
-
-    .nav__link {
-        display: inline-block;
-        padding: 5px 0;
-    }
-
-    .main {
-        padding: 30px 0;
-    }
-
-    .section {
-        padding: 20px;
-        margin-bottom: 25px;
-    }
-
-    .section__title {
-        font-size: 22px;
-        margin-bottom: 15px;
-    }
-
-    /* На десктопе визуальный порядок совпадает с HTML: ссылки перед таблицей */
-    #table {
-        order: 0;
-    }
-
-    #links {
-        order: -1;
-    }
-
-    .form__input,
-    .form__textarea {
-        max-width: 400px;
-    }
-
-    .form__radio,
-    .form__checkbox {
-        display: inline-block;
-        margin-right: 15px;
-        margin-bottom: 5px;
-    }
-
-    .form__error {
-        display: none;
-        margin-left: 10px;
-        margin-top: 0;
-    }
-
-    .form__button {
-        width: auto;
-    }
-
     .footer__text {
         text-align: left;
     }
